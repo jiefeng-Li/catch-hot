@@ -1,0 +1,48 @@
+# ===== Python（后端）=====
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+.venv/
+venv/
+.conda/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.hypothesis/
+
+# ===== 环境变量 =====
+.env
+.env.*
+!.env.example
+
+# ===== Node（前端）=====
+node_modules/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ===== 运行数据与临时文件 =====
+data/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite3
+*.log
+logs/
+backend.zip
+tmp_hotitems.json
+
+# ===== 编辑器 / 操作系统 =====
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
