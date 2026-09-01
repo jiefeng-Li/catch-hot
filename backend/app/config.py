@@ -13,10 +13,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 DATA_DIR = Path(os.getenv("CATCHHOT_DATA_DIR", BASE_DIR / "data"))
 
 # MySQL 连接参数（可通过 CATCHHOT_DATABASE_URL 整体覆盖）
-MYSQL_HOST = os.getenv("CATCHHOT_MYSQL_HOST", "10.25.101.149")
+MYSQL_HOST = os.getenv("CATCHHOT_MYSQL_HOST", "localhost")
 MYSQL_PORT = int(os.getenv("CATCHHOT_MYSQL_PORT", "3306"))
 MYSQL_USER = os.getenv("CATCHHOT_MYSQL_USER", "root")
-MYSQL_PASSWORD = os.getenv("CATCHHOT_MYSQL_PASSWORD", "C7C4763g")
+MYSQL_PASSWORD = os.getenv("CATCHHOT_MYSQL_PASSWORD", "3121")
 MYSQL_DATABASE = os.getenv("CATCHHOT_MYSQL_DATABASE", "catchhot")
 
 _DEFAULT_MYSQL_URL = (

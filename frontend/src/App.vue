@@ -1,59 +1,63 @@
 <template>
-  <el-container class="app-layout">
-    <el-aside width="240px" class="app-aside">
-      <div class="logo">
-        <div class="logo-icon">
-          <el-icon :size="20"><Sunny /></el-icon>
-        </div>
-        <div>
-          <div class="logo-title">CatchHot</div>
-          <div class="logo-subtitle">热点追踪面板</div>
-        </div>
-      </div>
-
-      <el-menu
-        :default-active="$route.path"
-        router
-        class="side-menu"
-        active-text-color="#2563eb"
-        background-color="transparent"
-        text-color="#475569"
-      >
-        <el-menu-item index="/hot">
-          <el-icon><HotWater /></el-icon>
-          <span>热点列表</span>
-        </el-menu-item>
-        <el-menu-item index="/tags">
-          <el-icon><CollectionTag /></el-icon>
-          <span>标签管理</span>
-        </el-menu-item>
-        <el-menu-item index="/trend">
-          <el-icon><TrendCharts /></el-icon>
-          <span>趋势分析</span>
-        </el-menu-item>
-        <el-menu-item index="/jobs">
-          <el-icon><Document /></el-icon>
-          <span>任务日志</span>
-        </el-menu-item>
-      </el-menu>
-    </el-aside>
-
-    <el-container class="app-content">
-      <el-header class="app-header" height="72px">
-        <div class="header-left">
-          <div class="header-dot"></div>
+  <template v-if="route.meta.layout !== 'home'">
+    <el-container class="app-layout">
+      <el-aside width="240px" class="app-aside">
+        <div class="logo">
+          <div class="logo-icon">
+            <el-icon :size="20"><Sunny /></el-icon>
+          </div>
           <div>
-            <div class="page-title">{{ $route.meta.title }}</div>
-            <div class="page-subtitle">{{ headerSubtitle }}</div>
+            <div class="logo-title">CatchHot</div>
+            <div class="logo-subtitle">热点追踪面板</div>
           </div>
         </div>
-        <div class="header-badge">实时更新</div>
-      </el-header>
-      <el-main class="app-main">
-        <router-view />
-      </el-main>
+
+        <el-menu
+          :default-active="$route.path"
+          router
+          class="side-menu"
+          active-text-color="#2563eb"
+          background-color="transparent"
+          text-color="#475569"
+        >
+          <el-menu-item index="/app/hot">
+            <el-icon><HotWater /></el-icon>
+            <span>热点列表</span>
+          </el-menu-item>
+          <el-menu-item index="/app/tags">
+            <el-icon><CollectionTag /></el-icon>
+            <span>标签管理</span>
+          </el-menu-item>
+          <el-menu-item index="/app/trend">
+            <el-icon><TrendCharts /></el-icon>
+            <span>趋势分析</span>
+          </el-menu-item>
+          <el-menu-item index="/app/jobs">
+            <el-icon><Document /></el-icon>
+            <span>任务日志</span>
+          </el-menu-item>
+        </el-menu>
+      </el-aside>
+
+      <el-container class="app-content">
+        <el-header class="app-header" height="72px">
+          <div class="header-left">
+            <div class="header-dot"></div>
+            <div>
+              <div class="page-title">{{ $route.meta.title }}</div>
+              <div class="page-subtitle">{{ headerSubtitle }}</div>
+            </div>
+          </div>
+          <div class="header-badge">实时更新</div>
+        </el-header>
+        <el-main class="app-main">
+          <router-view />
+        </el-main>
+      </el-container>
     </el-container>
-  </el-container>
+  </template>
+
+  <router-view v-else />
 </template>
 
 <script setup>
