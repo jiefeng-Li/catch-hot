@@ -52,6 +52,15 @@
     </header>
 
     <main class="home-main">
+      <a
+        class="icp-badge"
+        href="https://beian.miit.gov.cn/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        蜀ICP备2026045444号
+      </a>
+
       <section id="projects" class="section-block">
         <div class="section-head">
           <span class="section-kicker">Projects</span>
@@ -321,6 +330,30 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 32px 72px;
+  position: relative;
+}
+
+.icp-badge {
+  position: fixed;
+  right: 20px;
+  bottom: 18px;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.72);
+  color: #f8fafc;
+  font-size: 0.8rem;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.18);
+  backdrop-filter: blur(8px);
+}
+
+.icp-badge:hover {
+  background: rgba(15, 23, 42, 0.82);
 }
 
 .section-block {
