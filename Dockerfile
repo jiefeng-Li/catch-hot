@@ -3,19 +3,24 @@ FROM python:3.11-slim
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1 \
-    CATCHHOT_MYSQL_HOST=10.25.101.149 \
+    PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple \
+    CATCHHOT_MYSQL_HOST=localhost \
     CATCHHOT_MYSQL_PORT=3306 \
     CATCHHOT_MYSQL_USER=root \
-    CATCHHOT_MYSQL_PASSWORD=C7C4763g \
+    CATCHHOT_MYSQL_PASSWORD=3121 \
     CATCHHOT_MYSQL_DATABASE=catchhot \
     CATCHHOT_CORS_ORIGINS=*
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y --no-install-recommends build-essential && rm -rf /var/lib/apt/lists/*
+RUN sed -i 's|deb.debian.org|mirrors.ustc.edu.cn|g; s|security.debian.org|mirrors.ustc.edu.cn|g' /etc/apt/sources.list.d/debian.sources 2>/dev/null || true \
+    && apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt ./
-RUN pip install --upgrade pip && pip install -r requirements.txt
+RUN python -m pip install --upgrade pip \
+    && python -m pip install --index-url https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 
 COPY backend ./backend
 
